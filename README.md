@@ -46,7 +46,7 @@ afplay /System/Library/Sounds/Funk.aiff 2>/dev/null & say 'Attention Need'
 |---|---|---|---|
 | `permission_prompt` | Tool permission dialog | Hero.aiff | "Permission Need" |
 | `elicitation_dialog` | Waiting for confirmation | Hero.aiff | "Confirmation Need" |
-| `idle_prompt` | Waiting for text input | Funk.aiff | "Choice Need" |
+| `idle_prompt` | Waiting for text input | Funk.aiff | random StarCraft quote |
 
 Smart mode auto-creates `~/.claude/hooks/notification-sound.py` — no manual setup needed.
 
