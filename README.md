@@ -46,7 +46,12 @@ afplay /System/Library/Sounds/Funk.aiff 2>/dev/null & say 'Attention Need'
 |---|---|---|---|
 | `permission_prompt` | Tool permission dialog | Hero.aiff | "Permission Need" |
 | `elicitation_dialog` | Waiting for confirmation | Hero.aiff | "Confirmation Need" |
-| `idle_prompt` | Waiting for text input | Funk.aiff | random StarCraft quote |
+| `idle_prompt` | Waiting for text input | Funk.aiff | configurable (see below) |
+
+**`idle_prompt` voice options** (choose during `/set-notification` custom setup):
+- **Silent** (default) — sound only, no TTS
+- **StarCraft** — random Terran unit quote (13 lines: Marine, SCV, Siege Tank, Ghost, Medic, Battlecruiser)
+- **Custom** — your own phrase
 
 Smart mode auto-creates `~/.claude/hooks/notification-sound.py` — no manual setup needed.
 

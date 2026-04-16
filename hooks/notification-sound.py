@@ -45,4 +45,5 @@ except Exception:
 sound, phrase = TYPE_MAP.get(ntype, DEFAULT)
 
 subprocess.Popen(["afplay", f"{SOUNDS}/{sound}.aiff"], stderr=subprocess.DEVNULL)
-subprocess.Popen(["say", phrase])
+if phrase:
+    subprocess.Popen(["say", phrase])
