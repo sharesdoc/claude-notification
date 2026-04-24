@@ -2,6 +2,8 @@
 
 A Claude Code skill that interactively configures notification sounds on macOS — so you can hear when Claude finishes a task, needs your permission, or is waiting for your input.
 
+This repository now also includes a Codex CLI notification hook for macOS, so Codex can play different sounds for task completion and attention-needed events.
+
 ## Demo
 
 Run `/set-notification` in Claude Code. Type `auto` for a one-shot install, or `y` for interactive setup:
@@ -80,6 +82,31 @@ cp set-notification.md ~/.claude/commands/set-notification.md
 ```
 
 That's it. The skill is now available in Claude Code.
+
+## Codex CLI
+
+For Codex CLI on macOS, install the bundled notify hook:
+
+```bash
+mkdir -p ~/.codex
+install -m 755 hooks/codex-notify.sh ~/.codex/notify.sh
+```
+
+Then add the following to `~/.codex/config.toml`:
+
+```toml
+notify = ["/Users/johnson/.codex/notify.sh"]
+
+[tui]
+notifications = ["agent-turn-complete", "approval-requested"]
+notification_condition = "always"
+notification_method = "auto"
+```
+
+Behavior:
+- `Glass.aiff` for task completion
+- `Funk.aiff` for approval / confirmation style events when the payload indicates attention is needed
+- TUI notifications remain enabled for `agent-turn-complete` and `approval-requested`
 
 ## Usage
 
